@@ -40,16 +40,22 @@ Box<Element> * ListeIterative<Element>::_getBox(int pos){
   int i;
   Box<Element> * current;
 
-  if(0 <= pos && pos < _size){
-    i=0;
-    current = _first;
-    while(i < pos){
-      current = current->getNext();
-      i++;
+  if(_size == 0)
+    throw ListeIterative<Element>::ListLogicFault("Logic error: attempt to read empty list");
+  else{
+    if(0 <= pos && pos < _size){
+      i=0;
+      current = _first;
+      while(i < pos){
+	current = current->getNext();
+	i++;
+      }
+      return current;
     }
-    return current;
+    else{
+      throw ListeIterative<Element>::ListLogicFault("Logic error: out of range error for access index");
+    }
   }
-  else return NULL;
 }
 
 template <typename Element>
@@ -129,13 +135,17 @@ template <typename Element>
 Element & ListeIterative<Element>::operator[](int i){
   if(_size == 0)
     throw ListeIterative<Element>::ListLogicFault("Logic error: attempt to read empty list");
-  else if(0 <= i && i < _size){
-    return _getBox(i)->getContent();
+  else{
+    if(0 <= i && i < _size){
+      return _getBox(i)->getContent();
+    }
+    else{
+      if(i < 0)
+	return _first->getContent();
+      else
+	return _last->getContent();
+    }
   }
-  else if(i < 0)
-    return _first->getContent();
-  else
-    return _last->getContent();
 }
 
 template <typename T>

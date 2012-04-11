@@ -22,9 +22,14 @@ FileIterative<T> operator+=(const FileIterative<T> &left, const ListeIterative<T
   FileIterative<T>res(left);
   ListeIterative<T> r(right);
 
-  len = r.size();
-  for(i=0; i<len; i++){
-    res.push(r[i]);
+  try{
+    len = r.size();
+    for(i=0; i<len; i++){
+      res.push(r[i]);
+    }
+  }
+  catch(...){
+    throw;
   }
   return res;
 }
