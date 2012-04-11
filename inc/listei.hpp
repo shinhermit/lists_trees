@@ -28,7 +28,13 @@ class ListeIterative
 
   inline int size() const;
   inline bool isEmpty() const;
+
   Element & operator[](int);//ieme
+
+  template <typename T>
+  friend ListeIterative<T> operator+(const ListeIterative<T> &, const ListeIterative<T> &);
+
+  //ListeIterative<Element> & operator+=(const ListeIterative<Element> &);
 
   class ListLogicFault// : public exception
   {

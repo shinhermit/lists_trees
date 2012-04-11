@@ -6,6 +6,7 @@ Box<Element>::Box(const Box<Element> & source):_contenu(source._contenu), _prece
 
 template<typename Element>
 Box<Element> & Box<Element>::operator=(const Box<Element> & source){
+  this->~Box();
   _contenu = source._contenu;
   _precedent = source._precedent;
   _suivant = source._suivant;

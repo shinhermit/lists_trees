@@ -23,9 +23,6 @@ int main()
 
     a.build(Node<double>(4.4), f);
 
-    print_tree<double>(a);
-    print_tree<double>(b);
-    print_tree<double>(c);
     std::cout<<std::endl;
     width_travers_tree<double>(a, print_tree<double>);
   }

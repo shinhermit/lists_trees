@@ -138,6 +138,26 @@ Element & ListeIterative<Element>::operator[](int i){
     return _last->getContent();
 }
 
+template <typename T>
+ListeIterative<T> operator+(const ListeIterative<T> & left, const ListeIterative<T> & right){
+  ListeIterative<T> res(left);
+  int i, len1, len2;
+
+  len1 = left.size();
+  len2 = right.size();
+  for(i=0; i < len2; i++){
+    res.insert(i+len1, right[i]);
+  }
+  return res;
+}
+
+/*template <typename Element>
+ListeIterative<Element> & ListeIterative<Element>::operator+=(const ListeIterative<Element> & right){
+  *this = *this + right;
+  return *this;
+}
+*/
+
 
 template <typename Element>
 void ListeIterative<Element>::_clone(const ListeIterative<Element> & source){

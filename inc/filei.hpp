@@ -11,6 +11,9 @@ public:
   FileIterative<Element> & pop();
   Element front();
   bool isEmpty(){return ListeIterative<Element>::isEmpty();}
+
+  template <typename T>
+  friend FileIterative<T> operator+=(const FileIterative<T> &, const ListeIterative<T> &);
 };
 
 #include "filei.tpp"
