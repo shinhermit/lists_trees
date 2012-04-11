@@ -9,8 +9,7 @@ obj=obj
 
 #CIBLES
 
-all: verif_noeud verif_arbre
-	rm -f $(obj)/verif_noeud.o
+all: tree
 
 box:
 	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
