@@ -1,6 +1,6 @@
 #VARIABLES
 cc=g++
-options=-Wall
+flags=-Wall -g
 exec=verif
 include=inc
 template=tpp
@@ -12,29 +12,29 @@ obj=obj
 all: tree
 
 box:
-	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
+	$(cc) $(flags) -I$(include) -I$(template) -c $(src)/$@.cpp
 	mv $@.o $(obj)
-	$(cc) $(obj)/$@.o -o $@.out
+	$(cc) $(flags) $(obj)/$@.o -o $@.out
 
-listei:
-	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
+listei: box
+	$(cc) $(flags) -I$(include) -I$(template) -c $(src)/$@.cpp
 	mv $@.o $(obj)
-	$(cc) $(obj)/$@.o -o $@.out
+	$(cc) $(flags) $(obj)/$@.o -o $@.out
 
 node:
-	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
+	$(cc) $(flags) -I$(include) -I$(template) -c $(src)/$@.cpp
 	mv $@.o $(obj)
-	$(cc) $(obj)/$@.o -o $@.out
+	$(cc) $(flags) $(obj)/$@.o -o $@.out
 
-filei:
-	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
+filei: listei
+	$(cc) $(flags) -I$(include) -I$(template) -c $(src)/$@.cpp
 	mv $@.o $(obj)
-	$(cc) $(obj)/$@.o -o $@.out
+	$(cc) $(flags) $(obj)/$@.o -o $@.out
 
-tree:
-	$(cc) -I$(include) -I$(template) -c $(src)/$@.cpp
+tree: node listei filei
+	$(cc) $(flags) -I$(include) -I$(template) -c $(src)/$@.cpp
 	mv $@.o $(obj)
-	$(cc) $(obj)/$@.o -o $@.out
+	$(cc) $(flags) $(obj)/$@.o -o $@.out
 
 cleantemp:
 	rm -f *~

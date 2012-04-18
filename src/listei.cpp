@@ -34,7 +34,6 @@ void supr_list_tout(ListeIterative<double> & l){
 int main()
 {
   ListeIterative<double> l1, l2;
-  int j;
   double i;
 
 
@@ -42,9 +41,10 @@ int main()
   //l=liste_vide !( ) <=> size((l) =0
   if(l1.isEmpty())
     cout<<"Liste vide crée"<<endl;
+  cout<<"size: "<<l1.size()<<endl;
 
   //l= insert(l’,i,e) => size(l) = size(l’) +1
-  l1.insert(1, 1.1);
+  l1.insert(0, 1.1);
   try{
     cout<<"1 elt ajouté: "<<l1[0]<<endl;
     cout<<"size: "<<l1.size()<<endl;

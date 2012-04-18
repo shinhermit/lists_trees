@@ -16,8 +16,8 @@ namespace tree_algorithms
 
   //IMPLEMENTATIONS
   template <typename Element>
-  void width_travers_tree( Tree<Element> & theTree, void (* process)(Tree<Element> & subTree) ){
-    int i , n;
+  void width_travers_tree( Tree<Element> & theTree, void (* process)(Tree<Element> & ) ){
+    //int i , n;
     typename Tree<Element>::Forest subtrees;
     Tree<Element> A;
     Tree<Element> Ai;
@@ -43,38 +43,6 @@ namespace tree_algorithms
       throw;
     }
 
-    /*try{
-      //process : effectue un traitement sur la racine de l'arbre courant (racine et sous arbres)
-      //on traite la racine
-      process(theTree) ;
-
-      file.push(theTree);
-      while( !file.isEmpty() ){
-	A = file.front() ;
-	file.pop() ;
-	//traiter les racines des sous_arbres de A
-	foret = A.subTrees() ;
-	n = foret.size() ;
-	for(i=0; i < n; i++){
-	  Ai = foret[i];
-	  process(Ai);
-	  file.push(Ai);
-	}
-      } 
-    }
-    catch(typename Node<Element>::NodeLogicFault & e){
-      std::cout<<e.what()<<std::endl;
-      throw;
-    }
-    catch(typename Tree<Element>::TreeLogicFault & e){
-      std::cout<<e.what()<<std::endl;
-      throw;
-    }
-    catch(...){
-      std::cout<<"unknow exception"<<std::endl;
-      throw;
-    }
-    */
   }
 
   template <typename Element>

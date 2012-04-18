@@ -4,8 +4,6 @@
 using namespace std;
 
 void lister(FileIterative<double> f){
-  int i;
-
   cout<<"( ";
   while( !f.isEmpty() ){
     cout<<f.front();
@@ -16,8 +14,6 @@ void lister(FileIterative<double> f){
 }
 
 void supr_defile_tout(FileIterative<double> & f){
-  int i, len;
-
   lister(f);
   while( !f.isEmpty() ){
     f.pop();
@@ -28,7 +24,6 @@ void supr_defile_tout(FileIterative<double> & f){
 int main()
 {
   FileIterative<double> f1;
-  int j;
   double i;
 
   //Axiome:
@@ -68,6 +63,30 @@ int main()
   supr_defile_tout(f1);
   if( f1.isEmpty() )
     cout<<"Lile vidée"<<endl;
+
+  //test +=
+  cout<<"Ajout dans f1"<<endl;
+  for(i=0; i < 3; i++){
+    f1.push(i*1.1);
+  }
+  lister(f1);
+  FileIterative<double> f2, f3, f4;
+  ListeIterative<double> l1, l2;
+  cout<<"Ajout dans listeitérative"<<endl;
+  for(i=3; i < 6; i++){
+    l1.insert(i-3, i*1.1);
+  }
+  cout<<"("<<l1[0]<<" "<<l1[1]<<" "<<l1[2]<<" "<<")"<<endl;
+  cout<<"Size l1: "<<l1.size()<<endl;
+  cout<<"concaténation"<<endl;
+  f1+=l1;
+  lister(f1);
+
+  f1+=l2;
+  lister(f1);
+  f2+=l2;
+  f2+=l1;
+  //l2[0];
 
   return 0;
 }

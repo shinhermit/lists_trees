@@ -16,22 +16,20 @@ Element FileIterative<Element>::front(){
   return (*this)[0];
 }
 
-template <typename T>
-FileIterative<T> operator+=(const FileIterative<T> &left, const ListeIterative<T> & right){
+template <typename Element>
+FileIterative<Element> & FileIterative<Element>::operator+=(const ListeIterative<Element> & right){
   int i, len;
-  FileIterative<T>res(left);
-  ListeIterative<T> r(right);
 
   try{
-    len = r.size();
+    len = right.size();
     for(i=0; i<len; i++){
-      res.push(r[i]);
+      push(right[i]);
     }
+    return *this;
   }
   catch(...){
     throw;
   }
-  return res;
 }
 
 

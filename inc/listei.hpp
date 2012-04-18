@@ -15,6 +15,7 @@ class ListeIterative
   int _size; // liste vide: size = 0;
 
   Box<Element> * _getBox(int=0);
+  Box<Element> * _getBox(int=0)const;
   void _clone(const ListeIterative &);
 
  public:
@@ -30,6 +31,8 @@ class ListeIterative
   inline bool isEmpty() const;
 
   Element & operator[](int);//ieme
+
+  Element & operator[](int)const;//ieme
 
   template <typename T>
   friend ListeIterative<T> operator+(const ListeIterative<T> &, const ListeIterative<T> &);

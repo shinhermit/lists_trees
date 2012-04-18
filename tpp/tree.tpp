@@ -30,6 +30,7 @@ Tree<Element> & Tree<Element>::build(Node<Element> n, Tree<Element>::Forest f){
   try{
   _rootnode = n;
   _sub_trees = f;
+  return *this;
   }
   catch(Node<double>::NodeLogicFault & e){
     std::cout<<e.what()<<std::endl;

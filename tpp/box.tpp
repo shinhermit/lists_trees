@@ -10,6 +10,7 @@ Box<Element> & Box<Element>::operator=(const Box<Element> & source){
   _contenu = source._contenu;
   _precedent = source._precedent;
   _suivant = source._suivant;
+  return *this;
 }
 
 template<typename Element>
@@ -28,10 +29,10 @@ template<typename Element>
 Box<Element> * Box<Element>::getNext()const{return _suivant;}
 
 template<typename Element>
-Box<Element> & Box<Element>::setContent(Element e){_contenu = e;}
+Box<Element> & Box<Element>::setContent(Element e){_contenu = e; return *this;}
 
 template<typename Element>
-Box<Element> & Box<Element>::setPrevious(Box<Element> * prev){_precedent = prev;}
+Box<Element> & Box<Element>::setPrevious(Box<Element> * prev){_precedent = prev; return *this;}
 
 template<typename Element>
-Box<Element> & Box<Element>::setNext(Box<Element> * next){_suivant = next;}
+Box<Element> & Box<Element>::setNext(Box<Element> * next){_suivant = next; return *this;}
